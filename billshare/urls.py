@@ -1,3 +1,6 @@
+from django.contrib import admin
+from django.urls import path
+from billshareapi.views import register_user, check_user
 """billshare URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,9 +16,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
 
 urlpatterns = [
+    path('register', register_user),
+    path('checkuser', check_user),
     path('admin/', admin.site.urls),
 ]
