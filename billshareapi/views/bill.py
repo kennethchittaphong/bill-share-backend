@@ -23,9 +23,7 @@ class BillView(ViewSet):
         user = User.objects.get(uid=request.data["user"])
     
         bill = Bill.objects.create(
-            title = request.data["title"],
-            content = request.data["content"],
-            approved = request.data["approved"],
+            name = request.data["name"],
             user = user
         )
         serializer = BillSerializer(bill)
@@ -36,7 +34,7 @@ class BillView(ViewSet):
         bill = Bill.objects.get(pk=pk)
         
         
-        bill.title = request.data["title"]
+        bill.name = request.data["name"]
         bill.save()
         
         return Response(None, status=status.HTTP_204_NO_CONTENT)  
