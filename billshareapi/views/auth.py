@@ -20,9 +20,9 @@ def check_user(request):
         data = {
             'id': user.id,
             'uid': user.uid,
-            'first_name': user.first_name,
-            'last_name': user.last_name,
-            'bio': user.bio,
+            'name': user.name,
+  
+
         }
         print(data)
         return Response(data)
@@ -40,9 +40,7 @@ def register_user(request):
 
     # Now save the user info in the rarev2api_user table
     user = User.objects.create(
-        first_name=request.data['first_name'],
-        last_name=request.data['last_name'],
-        bio=request.data['bio'],
+        name=request.data['name'],
         uid=request.data['uid'],
     )
 
@@ -50,9 +48,7 @@ def register_user(request):
     data = {
             'id': user.id,
             'uid': user.uid,
-            'first_name': user.first_name,
-            'last_name': user.last_name,
-            'bio': user.bio,
+            'name': user.name,
     }
     print(data)
     return Response(data)
