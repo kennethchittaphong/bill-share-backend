@@ -1,0 +1,14 @@
+[
+    {
+        "model": "billshareapi.bill",
+        "pk": 1,
+        "fields": {
+            "name": "Xfinity",
+            "due_date": "2023-02-05",
+            "total_amount": "100",
+            "split_amount": "50",
+            "user": 1
+
+        }
+    }
+]
