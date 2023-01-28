@@ -1,0 +1,15 @@
+[
+    {
+        "model": "billshareapi.people",
+        "pk": 1,
+        "fields": {
+            "name": "John",
+            "due_date": "2023-02-05",
+            "amount": "100",
+            "status": "paid",
+            "billId": "1",
+            "uid": 1
+
+        }
+    }
+]

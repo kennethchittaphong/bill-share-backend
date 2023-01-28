@@ -1,13 +1,12 @@
 from django.db import models
 from .user import User
 
-class Bill(models.Model):
+class People(models.Model):
     
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=55)
     due_date = models.DateField(max_length=55)
-    total_amount = models.IntegerField(null=True)
-    split_amount = models.JSONField()
+    amount = models.IntegerField(null=True)
     status = models.CharField(max_length=55)
     bill_id = models.IntegerField(null=True)
 
