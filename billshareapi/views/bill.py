@@ -28,7 +28,6 @@ class BillView(ViewSet):
             due_date = request.data["due_date"],
             total_amount = request.data["total_amount"],
             split_amount = request.data["split_amount"],
-            bill_id = request.data["bill_id"],
             user = user
         )
         serializer = BillSerializer(bill)
@@ -48,8 +47,6 @@ class BillView(ViewSet):
             bill.split_amount = request.data["split_amount"]
         if data.get("status") is not None:
             bill.status = request.data["status"]
-        if data.get("bill_id") is not None:
-            bill.bill_id = request.data["bill_id"]
         
         bill.save()
     

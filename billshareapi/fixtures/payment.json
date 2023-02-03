@@ -1,0 +1,14 @@
+[
+    {
+      "model": "billshareapi.payment",
+      "pk": 1,
+      "fields": {
+          "label": "Kim",
+          "date_paid": "2023-02-01",
+          "amount_paid": "50",
+          "payment_type": "Venmo",
+          "bill_id": "1",
+          "uid": 1
+      }
+    }
+  ]
