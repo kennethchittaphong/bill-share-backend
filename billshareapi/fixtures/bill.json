@@ -8,8 +8,8 @@
             "total_amount": "100",
             "split_amount": "50",
             "status": "not paid",
-            "bill_id": "1",
-            "user": 1
+            "user": 1,
+            "uid": 1
 
         }
     }

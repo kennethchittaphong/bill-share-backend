@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
 from django.conf.urls import include
-from billshareapi.views import register_user, check_user, BillView, PeopleView
+from billshareapi.views import register_user, check_user, BillView, PeopleView, PaymentView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'bills', BillView, 'bill')
 router.register(r'peoples', PeopleView, 'people')
+router.register(r'payments', PaymentView, 'payment')
 
 urlpatterns = [
     path('register', register_user),
