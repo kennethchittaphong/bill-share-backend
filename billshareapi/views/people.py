@@ -4,14 +4,25 @@ from rest_framework.response import Response
 from rest_framework import serializers, status
 from billshareapi.models import People, User, Bill
 
+def isNum(data):
+    try:
+        int(data)
+        return True
+    except ValueError:
+        return False
+    
 class PeopleView(ViewSet):
     
     def retrieve(self, request, pk):
-        print("====================")
-        print("retrieve")
-        print("====================")
-        people = People.objects.get(pk=pk)
-        serializer = PeopleSerializer(people)
+        print('check pk ===============')
+        print(pk)
+        print('check pk ===============')
+        checkNum = isNum(pk)
+        if checkNum == True:
+            people = People.objects.filter(pk=pk)
+        else:
+            people = People.objects.filter(uid=pk)
+        serializer = PeopleSerializer(people, many=True)
         return Response(serializer.data)
     
     def list(self, request):
@@ -32,7 +43,7 @@ class PeopleView(ViewSet):
         
     def create(self, request):
 
-        # user = User.objects.get(uid=request.data["user"])
+        # user = User.objects.get(uid=request.data["uid"])
     
         people = People.objects.create(
             name = request.data["name"],
@@ -40,7 +51,7 @@ class PeopleView(ViewSet):
             amount = request.data["amount"],
             status = request.data["status"],
             bill_id = request.data["bill_id"],
-           # user = user
+            # user = user
         )
         serializer = PeopleSerializer(people)
         return Response(serializer.data)
