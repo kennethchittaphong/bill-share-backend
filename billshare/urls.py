@@ -17,16 +17,18 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
 from django.conf.urls import include
-from billshareapi.views import register_user, check_user, BillView, PeopleView, PaymentView
+from billshareapi.views import  BillView, PeopleView, PaymentView, UserView, AuthUserView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'bills', BillView, 'bill')
 router.register(r'peoples', PeopleView, 'people')
 router.register(r'payments', PaymentView, 'payment')
+router.register(r'users', UserView, 'user')
+router.register(r'authusers', AuthUserView, 'authuser')
+
 
 urlpatterns = [
-    path('register', register_user),
-    path('checkuser', check_user),
+
     path('admin/', admin.site.urls),
    # path('bills/<int:pk>/', BillView.update),
    # path('bills', BillView.list),
